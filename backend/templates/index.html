@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical Symptom Analyzer</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+        /* Navigation Bar */
+        .navbar {
+            width: 100%;
+            background: #2c3e50;
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            z-index: 1000;
+        }
+        .navbar-brand {
+            color: white !important;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        .navbar-nav {
+            margin-left: auto;
+        }
+        .nav-link {
+            color: white !important;
+            margin: 0 1rem;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+        .nav-link:hover {
+            color: #3498db !important;
+        }
+        /* Main Content */
+        .main-content {
+            padding: 2rem;
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+            margin-top: 80px; /* To account for the fixed navbar */
+        }
+        h1 {
+            color: #2c3e50;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            font-size: 2.5rem;
+        }
+        .lead {
+            color: #34495e;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin: 1rem;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+        }
+        .card-title {
+            color: #2c3e50;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .card-text {
+            color: #34495e;
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .btn-primary {
+            background-color: #3498db;
+            border: none;
+            padding: 0.75rem 1.5rem;
+            font-size: 1rem;
+            border-radius: 10px;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #2980b9;
+        }
+        .disclaimer {
+            margin-top: 2rem;
+            font-size: 0.9rem;
+            color: #7f8c8d;
+        }
+        .feature-text {
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: #34495e;
+        }
+        .icon {
+            font-size: 3rem;
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+        .section {
+            margin-top: 3rem;
+            text-align: left;
+        }
+        .section h2 {
+            color: #2c3e50;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+        .section p {
+            color: #34495e;
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+        .section ul {
+            list-style-type: disc;
+            padding-left: 1.5rem;
+            color: #34495e;
+        }
+        .section ul li {
+            margin-bottom: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Symptom Analyzer</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#faq">FAQ</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">Contact</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Icon -->
+        <div class="icon">
+            <i class="fas fa-stethoscope"></i>
+        </div>
+
+        <!-- Title -->
+        <h1>Medical Symptom Analyzer</h1>
+
+        <!-- Description -->
+        <p class="lead">
+            This system helps analyze symptoms and suggests possible diseases & remedies. 
+            It is a <strong>trial model</strong> and does <strong>not</strong> replace a real doctor.
+        </p>
+
+        <!-- Login Cards -->
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">User Login</h5>
+                        <p class="card-text">Login as a user to analyze your symptoms and get recommendations.</p>
+                        <a href="{{ url_for('login') }}" class="btn btn-primary">User Login</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">Admin Login</h5>
+                        <p class="card-text">Login as an admin to manage the system and view user data and disease data.</p>
+                        <a href="{{ url_for('alogin') }}" class="btn btn-primary">Admin Login</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Disclaimer -->
+        <div class="disclaimer">
+            <p>
+                <strong>Disclaimer:</strong> Always consult a qualified healthcare professional for medical advice. 
+                This tool is for informational purposes only.
+            </p>
+        </div>
+
+        <!-- Feature Note -->
+        <div class="feature-text">
+            <p>
+                <strong>Note:</strong> This is a trial version. Additional features like symptom tracking, 
+                personalized recommendations, and integration with healthcare providers will be added in the future.
+            </p>
+        </div>
+
+        <!-- About Section -->
+        <div id="about" class="section">
+            <h2>About</h2>
+            <p>
+                The <strong>Medical Symptom Analyzer</strong> is a web-based tool designed to help users analyze their symptoms and get preliminary disease predictions. It is not a substitute for professional medical advice, diagnosis, or treatment.
+            </p>
+            <p>
+                For further inquiries, please contact us at:
+                <br>
+                <strong>Email:</strong> support@symptomanalyzer.com
+            </p>
+        </div>
+
+        <!-- FAQ Section -->
+        <div id="faq" class="section">
+            <h2>FAQ</h2>
+            <ul>
+                <li><strong>Q: How accurate is the symptom analyzer?</strong><br>A: The symptom analyzer provides preliminary predictions based on available data. Always consult a doctor for accurate diagnosis.</li>
+                <li><strong>Q: Can I use this tool for emergencies?</strong><br>A: No, this tool is not designed for emergencies. In case of an emergency, contact your local healthcare provider immediately.</li>
+                <li><strong>Q: Is my data secure?</strong><br>A: Yes, we take data privacy seriously. Your information is encrypted and stored securely.</li>
+            </ul>
+        </div>
+
+        <!-- Contact Section -->
+        <div id="contact" class="section">
+            <h2>Contact</h2>
+            <p>
+                If you have any questions or feedback, feel free to reach out to us:
+                <br>
+                <strong>Email:</strong> aswanthasw@gmail.com
+                <br>
+                <strong>Phone:</strong> +91 623 858 7938
+            </p>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (Optional) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
